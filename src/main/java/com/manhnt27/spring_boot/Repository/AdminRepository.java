@@ -4,9 +4,7 @@
  */
 package com.manhnt27.spring_boot.Repository;
 
-
-import com.manhnt27.spring_boot.Model.Vaccine.VaccineReport;
-import org.springframework.data.domain.PageRequest;
+import com.manhnt27.spring_boot.Model.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +13,7 @@ import org.springframework.stereotype.Repository;
  * @author tuanm
  */
 @Repository
-public interface VaccineRepository extends JpaRepository<VaccineReport, Long> {
-
+public interface AdminRepository extends JpaRepository<Admin, Long> {
+    Admin findByUsername(String username);
 }
+

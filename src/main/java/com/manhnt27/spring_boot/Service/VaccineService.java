@@ -4,7 +4,6 @@
  */
 package com.manhnt27.spring_boot.Service;
 
-import com.manhnt27.spring_boot.Admin;
 import com.manhnt27.spring_boot.Model.Vaccine.VaccineReport;
 
 import java.util.List;
@@ -50,7 +49,7 @@ public class VaccineService {
         vaccineRepository.delete(vaccineReport);
     }
 
-    public void edit(long adminId, Admin newTodo) {
-        
-    }
+//    public void edit(long adminId, Admin newTodo) {
+//        
+//    }
 }

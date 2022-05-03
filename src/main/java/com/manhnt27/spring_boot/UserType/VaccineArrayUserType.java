@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.manhnt27.spring_boot;
+package com.manhnt27.spring_boot.UserType;
 
 import com.manhnt27.spring_boot.Model.Vaccine.Vaccine;
 import java.io.Serializable;
@@ -107,6 +107,8 @@ public class VaccineArrayUserType implements UserType {
             statement.setNull(index, SQL_TYPES[0]);
         } else {
             Object[] obj = (Object[]) value;
+            for(Object o: obj)
+                System.out.println(o.toString());
             PGobject[] castObject = new PGobject[obj.length];
             int idx = 0;
             for(Object o: obj) {

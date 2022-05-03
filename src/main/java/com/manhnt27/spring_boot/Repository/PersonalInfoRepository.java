@@ -4,17 +4,13 @@
  */
 package com.manhnt27.spring_boot.Repository;
 
-
-import com.manhnt27.spring_boot.Model.Vaccine.VaccineReport;
-import org.springframework.data.domain.PageRequest;
+import com.manhnt27.spring_boot.Model.PersonalInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author tuanm
  */
-@Repository
-public interface VaccineRepository extends JpaRepository<VaccineReport, Long> {
-
+public interface PersonalInfoRepository extends JpaRepository<PersonalInfo, Long>{
+    
 }

@@ -59,7 +59,8 @@ public class Vaccine {
     }
     
     public String getValue() {
-        return '(' + lot_num + ',' + date.toString() + ','
+        String dateVal = (date == null) ? "null" : date.toString();
+        return '(' + lot_num + ',' + dateVal + ','
             + immu_unit + ',' + vaccine_type + ')';
     }
 }
