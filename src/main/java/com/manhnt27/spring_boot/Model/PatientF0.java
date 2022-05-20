@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.Data;
 import org.aspectj.weaver.bcel.UnwovenClassFile;
 
@@ -20,30 +21,23 @@ import org.aspectj.weaver.bcel.UnwovenClassFile;
 
 @Entity
 @Data
+@Table(name="patientf0")
 public class PatientF0 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String citizenId;
-    private String phoneNumber;
-    private LocalDate DOB;
-    private String address;
-    private LocalDate positiveDate;
-    private LocalDate negativeDate;
-    
-    private enum Test {
-        RT_PCR,
-        RAPID_ANTIGEN_TEST
+    private String test_unit;
+    private String health_status; 
+    private LocalDate positive_date;
+    private Boolean recover;
+    private LocalDate negative_date;
+    private long user_id;
+   
+    public void setPatientF0(PatientF0 patientF0) {
+        this.health_status = patientF0.health_status;
+        this.positive_date = patientF0.positive_date;
+        this.recover = patientF0.recover;
+        this.negative_date = patientF0.negative_date;
     }
-    private enum Health {
-        WELL,
-        UNWELL,
-        SERIOUS,
-        DEAD
-    }
-
-    private Test test_type;
-    private Health health_status;
-
 }

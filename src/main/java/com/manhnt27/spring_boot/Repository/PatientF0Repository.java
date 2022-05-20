@@ -4,16 +4,13 @@
  */
 package com.manhnt27.spring_boot.Repository;
 
-import com.manhnt27.spring_boot.Model.Admin.Admin;
+import com.manhnt27.spring_boot.Model.PatientF0;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author tuanm
  */
-@Repository
-public interface AdminRepository extends JpaRepository<Admin, Long> {
-    Admin findByUsername(String username);
+public interface PatientF0Repository extends JpaRepository<PatientF0, Long>{
+    
 }
-

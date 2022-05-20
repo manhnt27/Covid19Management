@@ -36,5 +36,9 @@ public class VaccineReport implements Serializable {
     @Type(type = "com.manhnt27.spring_boot.UserType.VaccineArrayUserType")
     private Vaccine[] vaccine;
     
+    public void setVaccineReport(VaccineReport vaccineReport) {
+        this.num_doses = vaccineReport.num_doses;
+        this.vaccine = vaccineReport.vaccine;
+    }
    
 }

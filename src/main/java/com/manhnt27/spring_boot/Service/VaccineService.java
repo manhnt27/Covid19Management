@@ -49,7 +49,12 @@ public class VaccineService {
         vaccineRepository.delete(vaccineReport);
     }
 
-//    public void edit(long adminId, Admin newTodo) {
-//        
-//    }
+    public void edit(Long id, VaccineReport vaccineReport) {
+        VaccineReport oldVaccineReport = vaccineRepository.findById(id).get();
+        System.out.println(oldVaccineReport.getId());
+        oldVaccineReport.setVaccineReport(vaccineReport);
+        vaccineRepository.save(oldVaccineReport);
+    }
+
+
 }

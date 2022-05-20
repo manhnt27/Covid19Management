@@ -8,7 +8,9 @@ package com.manhnt27.spring_boot.Security;
  *
  * @author tuanm
  */
-import com.manhnt27.spring_boot.Model.Admin;
+import com.manhnt27.spring_boot.Model.Admin.Admin;
+import java.util.Collection;
+import java.util.Collections;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,7 +28,7 @@ public class AdminDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         // Mặc định mình sẽ để tất cả là ROLE_USER. Để demo cho đơn giản.
-        return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+        return Collections.singleton(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
 
     @Override
@@ -35,14 +37,17 @@ public class AdminDetails implements UserDetails {
     }
 
     @Override
-    public String getAdminname() {
-        return admin.getAdminname();
+    public String getUsername() {
+        return admin.getUsername();
     }
 
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
+    
+public String getCode() {
+    return "";}
 
     @Override
     public boolean isAccountNonLocked() {

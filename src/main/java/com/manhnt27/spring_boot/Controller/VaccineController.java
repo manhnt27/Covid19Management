@@ -43,13 +43,7 @@ public class VaccineController {
    
 
 
-    // bạn còn nhớ @PostConstruct dùng để làm gì chứ?
-    // nếu không nhớ, hãy coi lại bài viết Spring Boot #3 nhé
-    @PostConstruct
-    public void init(){
-        // Thêm null vào List để bỏ qua vị trí số 0;
-        
-    }
+   
 
     @GetMapping("/vaccine")
     public List<VaccineReport> getTodoList() {
@@ -63,13 +57,13 @@ public class VaccineController {
     @RequestBody nói với Spring Boot rằng hãy chuyển Json trong request body
     thành đối tượng Todo
      */
-//    @PutMapping("/vaccine/{adminId}")
-//    public Admin editTodo(@PathVariable(name = "adminId") Integer adminId,
-//                         @RequestBody Admin admin){
-//        vaccineService.edit(adminId, admin);
-//        // Trả về đối tượng sau khi đã edit
-//        return admin;    
-//}
+    @PutMapping("/vaccine/put/{id}")
+    public VaccineReport editVaccine(@PathVariable(name = "id") Long id,
+                         @RequestBody VaccineReport vaccineReport){
+        vaccineService.edit(id, vaccineReport);
+        // Trả về đối tượng sau khi đã edit
+        return vaccineReport;    
+    }
 
     @DeleteMapping("/vaccine/{adminId}")
     public ResponseEntity deleteTodo(@PathVariable(name = "adminId") Long adminId){
@@ -77,11 +71,9 @@ public class VaccineController {
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/vaccine")
-    public ResponseEntity addTodo(@RequestBody VaccineReport vaccineReport) {
+    @PostMapping("/vaccine/post")
+    public ResponseEntity addVaccineReport(@RequestBody VaccineReport vaccineReport) {
         vaccineService.add(vaccineReport);
-        // Trả về response với STATUS CODE = 200 (OK)
-        // Body sẽ chứa thông tin về đối tượng admin vừa được tạo.
         return ResponseEntity.ok().body(vaccineReport);
     }
 }
