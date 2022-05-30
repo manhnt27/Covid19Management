@@ -27,12 +27,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Lưu ý, @RequestMapping ở class, sẽ tác động tới
- * tất cả các RequestMapping ở bên trong nó.
- * 
- * Mọi Request ở trong method sẽ được gắn thêm prefix /api/v1
- */
 @CrossOrigin
 @RestController
 @RequestMapping("/api/v1")
@@ -40,23 +34,16 @@ public class VaccineController {
     @Autowired
     private VaccineService vaccineService;
     
-   
-
-
-   
-
     @GetMapping("/vaccine")
     public List<VaccineReport> getTodoList() {
         return vaccineService.findAll();
     }
+    
+    @GetMapping("/vaccine/get/user_id={user_id}")
+    public ResponseEntity getVaccineReportByUserId(@PathVariable(name = "user_id") Long user_id) {
+        return ResponseEntity.ok().body(vaccineService.getVaccineReportByUserId(user_id));
+    }
 
-   
-
-
-    /*
-    @RequestBody nói với Spring Boot rằng hãy chuyển Json trong request body
-    thành đối tượng Todo
-     */
     @PutMapping("/vaccine/put/{id}")
     public VaccineReport editVaccine(@PathVariable(name = "id") Long id,
                          @RequestBody VaccineReport vaccineReport){
@@ -65,11 +52,6 @@ public class VaccineController {
         return vaccineReport;    
     }
 
-    @DeleteMapping("/vaccine/{adminId}")
-    public ResponseEntity deleteTodo(@PathVariable(name = "adminId") Long adminId){
-        vaccineService.remove(adminId.longValue());
-        return ResponseEntity.ok().build();
-    }
 
     @PostMapping("/vaccine/post")
     public ResponseEntity addVaccineReport(@RequestBody VaccineReport vaccineReport) {

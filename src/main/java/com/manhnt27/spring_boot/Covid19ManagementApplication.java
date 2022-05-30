@@ -15,22 +15,4 @@ public class Covid19ManagementApplication {
 		SpringApplication.run(Covid19ManagementApplication.class, args);
 	}
 
-//      @Autowired
-//    AdminRepository adminRepository;
-//    @Autowired
-//    PasswordEncoder passwordEncoder;
-//
-//    @Override
-//    public void run(String... args) throws Exception {
-//        // Khi chương trình chạy
-//        // Insert vào csdl một user.
-//        Admin admin = new Admin();
-//        admin.setUsername("0405");
-//        admin.setPassword(passwordEncoder.encode("matkhau0405"));
-//        adminRepository.save(admin);
-//
-//
-//        System.out.println(admin);
- //   }
-        
 }

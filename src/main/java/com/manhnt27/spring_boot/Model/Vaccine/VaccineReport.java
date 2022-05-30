@@ -32,9 +32,12 @@ public class VaccineReport implements Serializable {
     private long id;
     
     private Integer num_doses;
-    private Long user_id;
+    @Column(name="user_id")
+    private Long userId;
     @Type(type = "com.manhnt27.spring_boot.UserType.VaccineArrayUserType")
     private Vaccine[] vaccine;
+    private String province_id;
+    private String district_id;
     
     public void setVaccineReport(VaccineReport vaccineReport) {
         this.num_doses = vaccineReport.num_doses;

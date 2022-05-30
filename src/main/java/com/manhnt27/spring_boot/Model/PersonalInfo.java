@@ -31,6 +31,8 @@ public class PersonalInfo {
     private Boolean gender;
     @Column(name="phone_number")
     private String phoneNumber;
+    private String province_id;
+    private String district_id;
     
     public void setPersonalInfo(PersonalInfo personalInfo) {
         this.name = personalInfo.name;

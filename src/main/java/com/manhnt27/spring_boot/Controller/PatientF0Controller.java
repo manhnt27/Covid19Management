@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -47,5 +48,10 @@ public class PatientF0Controller {
     public ResponseEntity deletePatientF0(@PathVariable(name = "id") Long id){
         patientF0Service.remove(id);
         return ResponseEntity.ok().build();
+    }
+    
+    @GetMapping("/patientf0/get/user_id={user_id}")
+    public ResponseEntity getVaccineReportByUserId(@PathVariable(name = "user_id") Long user_id) {
+        return ResponseEntity.ok().body(patientF0Service.getPatientF0ByUserId(user_id));
     }
 }

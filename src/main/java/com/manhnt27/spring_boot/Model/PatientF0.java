@@ -6,6 +6,7 @@ package com.manhnt27.spring_boot.Model;
 
 import com.sun.xml.bind.v2.WellKnownNamespace;
 import java.time.LocalDate;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,7 +33,10 @@ public class PatientF0 {
     private LocalDate positive_date;
     private Boolean recover;
     private LocalDate negative_date;
-    private long user_id;
+    @Column(name="user_id")
+    private long userId;
+    private String province_id;
+    private String district_id;
    
     public void setPatientF0(PatientF0 patientF0) {
         this.health_status = patientF0.health_status;

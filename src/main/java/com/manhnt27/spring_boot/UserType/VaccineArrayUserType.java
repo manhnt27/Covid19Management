@@ -74,6 +74,8 @@ public class VaccineArrayUserType implements UserType {
             return null;
         }
         Array array = resultSet.getArray(names[0]);
+        if(array ==null)
+            return null;
         Object[] obj = (Object[]) array.getArray();
         System.out.println(obj.length);
         Vaccine[] vac = new Vaccine[obj.length];

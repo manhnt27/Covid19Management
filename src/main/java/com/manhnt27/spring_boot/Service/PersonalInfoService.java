@@ -23,14 +23,19 @@ public class PersonalInfoService {
     public PersonalInfo add(PersonalInfo personalInfo) {
        return personalInfoRepository.save(personalInfo);
     }
+    
+    public PersonalInfo getPerInfoById(long id) {
+        return personalInfoRepository.findById(id).get();
+    }
+    
     public List<PersonalInfo> getPerInfoByName(String name) {
         return personalInfoRepository.findAllByName(name);
     }
     public List<PersonalInfo> getPerInfoByNameAndDOB(String name, LocalDate dob) {
         return personalInfoRepository.findAllByNameAndDob(name, dob);
     }
-    public List<PersonalInfo> getPerInfoByPhoneNumber(String phone_number) {
-        return personalInfoRepository.findAllByPhoneNumber(phone_number);
+    public PersonalInfo getPerInfoByPhoneNumber(String phone_number) {
+        return personalInfoRepository.findAllByPhoneNumber(phone_number).get(0);
     }
     public void edit(long id, PersonalInfo personalInfo) {
         PersonalInfo oldPersonalInfo = personalInfoRepository.findById(id).get();

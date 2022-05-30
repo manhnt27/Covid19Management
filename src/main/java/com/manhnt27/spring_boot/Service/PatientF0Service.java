@@ -30,4 +30,8 @@ public class PatientF0Service {
         PatientF0 patientF0 = patientF0Repository.findById(id).get();
         patientF0Repository.delete(patientF0);
     }
+    
+    public PatientF0 getPatientF0ByUserId(Long user_id) {
+        return patientF0Repository.findByUserId(user_id);
+    }
 }

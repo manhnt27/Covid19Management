@@ -41,7 +41,12 @@ public class PersonalInfoController {
         return ResponseEntity.ok().body(personalInfoService.getPerInfoByName(name));
     }
     
-    @GetMapping("/personal_info/get/phone/{phone_number}")
+    @GetMapping("/personal_info/get/id={id}")
+    public ResponseEntity getUserByName(@PathVariable(name = "id") Long id){
+        return ResponseEntity.ok().body(personalInfoService.getPerInfoById(id));
+    }
+    
+    @GetMapping("/personal_info/get/phone_number={phone_number}")
     public ResponseEntity getUserByPhoneNumber(@PathVariable(name = "phone_number") String phone_number){
         return ResponseEntity.ok().body(personalInfoService.getPerInfoByPhoneNumber(phone_number));
     }

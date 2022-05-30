@@ -56,5 +56,8 @@ public class VaccineService {
         vaccineRepository.save(oldVaccineReport);
     }
 
+    public VaccineReport getVaccineReportByUserId(Long user_id) {
+        return vaccineRepository.findByUserId(user_id);
+    }
 
 }

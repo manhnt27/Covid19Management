@@ -66,6 +66,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                  .antMatchers("/api/v1/login").permitAll()
                  .antMatchers("/api/v1/personal_info/get/**").permitAll()
+                 .antMatchers("/api/v1/personal_info/get/**").permitAll()
+                 .antMatchers("/api/v1/vaccine/get/**").permitAll()
+                 .antMatchers("/api/v1/patientf0/get/**").permitAll()
+                 .antMatchers("/api/v1/analysis/**").permitAll()
+                 .antMatchers("/api/v1/personal_info/put/**").permitAll()
             .anyRequest().authenticated()
             .and().csrf().disable();
             
